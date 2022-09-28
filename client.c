@@ -6,7 +6,7 @@
 /*   By: slepetit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 16:45:03 by slepetit          #+#    #+#             */
-/*   Updated: 2022/09/27 19:01:18 by slepetit         ###   ########.fr       */
+/*   Updated: 2022/09/27 20:37:10 by slepetit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@
  */
 
 char	*g_str;
-
-
 
 void	ft_send(int sig, siginfo_t *info, void *ignore)
 {
