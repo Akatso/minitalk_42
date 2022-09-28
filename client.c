@@ -6,7 +6,7 @@
 /*   By: slepetit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 16:45:03 by slepetit          #+#    #+#             */
-/*   Updated: 2022/09/27 20:37:10 by slepetit         ###   ########.fr       */
+/*   Updated: 2022/09/28 19:46:31 by slepetit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,14 @@ int	main(int ac, char **av)
 	g_str = av[2];
 	if (ac != 3)
 	{
-		write(2, "Error\n", 6);
+		ft_putstr("Error with arguments");
 		exit(EXIT_FAILURE);
 	}
-	kill(ft_atoi(av[1]), SIGUSR1);
+	if (kill(ft_atoi(av[1]), SIGUSR1) < 0)
+	{
+		ft_putstr("Error PID");
+		exit(EXIT_FAILURE);
+	}
 	ft_handler();
 	return (0);
 }
