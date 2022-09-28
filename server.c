@@ -6,7 +6,7 @@
 /*   By: slepetit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 16:45:11 by slepetit          #+#    #+#             */
-/*   Updated: 2022/09/27 18:46:23 by slepetit         ###   ########.fr       */
+/*   Updated: 2022/09/28 20:01:37 by slepetit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@
  *		void       (*sa_sigaction)(int, siginfo_t *, void *);
  *	}
  */
+
+void	ft_send(void)
+{
+	int	i;
+}
 
 void	ft_handler(int sig, siginfo_t *info, void *ignore)
 {
