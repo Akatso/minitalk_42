@@ -6,7 +6,7 @@
 /*   By: slepetit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 16:45:11 by slepetit          #+#    #+#             */
-/*   Updated: 2022/09/28 20:01:37 by slepetit         ###   ########.fr       */
+/*   Updated: 2022/09/29 00:21:47 by slepetit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,17 @@
  *	}
  */
 
-void	ft_send(void)
+void	ft_print(void)
 {
 	int	i;
 }
 
 void	ft_handler(int sig, siginfo_t *info, void *ignore)
 {
-	ft_putstr("Server send signal\n");
 	if (sig == SIGUSR1)
-		ft_putstr("SIGUSR1\n");
+		ft_putstr("1");
 	else if (sig == SIGUSR2)
-		ft_putstr("SIGUSR2\n");
-	usleep(100000);
+		ft_putstr("0");
 	kill(info->si_pid, SIGUSR1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: slepetit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 16:45:03 by slepetit          #+#    #+#             */
-/*   Updated: 2022/09/28 19:46:31 by slepetit         ###   ########.fr       */
+/*   Updated: 2022/09/29 00:19:36 by slepetit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,28 @@ char	*g_str;
 
 void	ft_send(int sig, siginfo_t *info, void *ignore)
 {
-	ft_putstr("Client send signal\n");
-	usleep(10000);
-	//convert algo
-	kill(info->si_pid, SIGUSR1);
+	static int	i;
+	static int	bit;
+	char		c;
+
+	c = g_str[i];
+	if (g_str[i] == '\0')
+		kill(info->si_pid, SIGUSR2);
+	else
+	{
+		if (c >> bit & 1)
+			kill(info->si_pid, SIGUSR1);
+		else
+			kill(info->si_pid, SIGUSR2);
+	}
+	bit++;
+	if (bit == 8 && !g_str[i])
+		exit(EXIT_SUCCESS);
+	else if (bit == 8)
+	{
+		bit = 0;
+		i++;
+	}
 }
 
 void	ft_handler(void)
@@ -50,12 +68,12 @@ int	main(int ac, char **av)
 	g_str = av[2];
 	if (ac != 3)
 	{
-		ft_putstr("Error with arguments");
+		ft_putstr("Error with arguments\n");
 		exit(EXIT_FAILURE);
 	}
 	if (kill(ft_atoi(av[1]), SIGUSR1) < 0)
 	{
-		ft_putstr("Error PID");
+		ft_putstr("Error PID\n");
 		exit(EXIT_FAILURE);
 	}
 	ft_handler();
