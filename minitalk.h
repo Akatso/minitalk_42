@@ -20,6 +20,7 @@ size_t	ft_strlen(char *s);
 size_t	ft_putchar(char c);
 size_t	ft_putstr(char *s);
 size_t	ft_putnbr(long int nb);
+char	*ft_strjoin(const char s1, const char *s2);
 int		ft_atoi(const char *nptr);
 
 #endif

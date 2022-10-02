@@ -21,18 +21,62 @@
  *	}
  */
 
-void	ft_print(void)
+void	ft_free(char **msg, int *connect)
 {
-	int	i;
+	free(*msg);
+	*connect = 0;
+}
+
+void	ft_protect(char **str)
+{
+	if (!*str)
+	{
+		*str = malloc(sizeof(char));
+		if (!*str)
+			exit(EXIT_FAILURE);
+	}
+}
+
+void	ft_binary(int sig, int *connect)
+{
+	static char	*msg;
+	static char	*tmp;
+	static int	binary;
+	static int	bit;
+	
+	ft_protect(&msg);
+	ft_protect(&tmp);
+	if (sig == SIGUSR1)
+		binary |= 1;
+	bit++;
+	if (bit == 8)
+	{
+		tmp[0] = binary;
+		ft_strjoin(msg, tmp);
+		if (binary == '\0')
+		{
+			ft_putstr(msg);
+			ft_reset(&msg, &connect);
+		}
+		binary = 0;
+		bit = 0;
+	}
+	else
+		binary <<= 1;
 }
 
 void	ft_handler(int sig, siginfo_t *info, void *ignore)
 {
-	if (sig == SIGUSR1)
-		ft_putstr("1");
-	else if (sig == SIGUSR2)
-		ft_putstr("0");
-	kill(info->si_pid, SIGUSR1);
+	static int	connect;
+
+	if (connect == 0)
+		kill(info->si_pid, SIGUSR1);
+	else
+	{
+		ft_binary(sig, &connect);
+		kill(info->si_pid, SIGUR1);
+	}
+	connect++;
 }
 
 int	main(void)

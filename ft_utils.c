@@ -12,7 +12,7 @@
 
 #include "minitalk.h"
 
-size_t	ft_strlen(char *s)
+size_t	ft_strlen(const char *s)
 {
 	int	i;
 
@@ -20,11 +20,6 @@ size_t	ft_strlen(char *s)
 	while (s[i])
 		i++;
 	return (i);
-}
-
-size_t	ft_putchar(char c)
-{
-	return (write(1, &c, 1));
 }
 
 size_t	ft_putstr(char *s)
@@ -86,4 +81,33 @@ size_t	ft_putnbr(long int nb)
 	while (i >= 0)
 		ft_putchar(tab[i--] + 48);
 	return (count);
+}
+
+char	*ft_strjoin(const char *s1, const char *s2)
+{
+	size_t	i;
+	size_t	j;
+	size_t	len;
+	char	*dest;
+
+	i = 0;
+	j = 0;
+	len = ft_strlen(s1) + ft_strlen(s2);
+	dest = malloc(sizeof(char) * len + 1);
+	if (dest == NULL)
+		return (NULL);
+	while (s1[i])
+	{
+		dest[i] = s1[i];
+		i++;
+	}
+	while (s2[j])
+	{
+		dest[i] = s2[j];
+		i++;
+		j++;
+	}
+	dest[i] = 0;
+	free(s2);
+	return (dest);
 }
