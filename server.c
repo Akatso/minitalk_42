@@ -6,7 +6,7 @@
 /*   By: slepetit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 16:45:11 by slepetit          #+#    #+#             */
-/*   Updated: 2022/09/29 00:21:47 by slepetit         ###   ########.fr       */
+/*   Updated: 2022/10/03 20:59:59 by slepetit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
  *	}
  */
 
-void	ft_free(char **msg, int *connect)
+void	ft_reset(char **msg, int **connect)
 {
 	free(*msg);
 	*connect = 0;
@@ -43,7 +43,7 @@ void	ft_binary(int sig, int *connect)
 	static char	*tmp;
 	static int	binary;
 	static int	bit;
-	
+
 	ft_protect(&msg);
 	ft_protect(&tmp);
 	if (sig == SIGUSR1)
@@ -52,7 +52,7 @@ void	ft_binary(int sig, int *connect)
 	if (bit == 8)
 	{
 		tmp[0] = binary;
-		ft_strjoin(&msg, &tmp);
+		ft_strjoin(msg, tmp);
 		if (binary == '\0')
 		{
 			ft_putstr(msg);
@@ -65,7 +65,7 @@ void	ft_binary(int sig, int *connect)
 		binary <<= 1;
 }
 
-void	ft_handler(int sig, siginfo_t *info, void *ignore)
+void	ft_handler_server(int sig, siginfo_t *info, void *ignore)
 {
 	static int	connect;
 
@@ -87,7 +87,7 @@ int	main(void)
 	sigemptyset(&signal);
 	sigaddset(&signal, SIGUSR2);
 	action.sa_flags = SA_SIGINFO;
-	action.sa_sigaction = &ft_handler;
+	action.sa_sigaction = &ft_handler_server;
 	ft_putnbr(getpid());
 	ft_putstr("\n");
 	sigaction(SIGUSR2, &action, NULL);

@@ -1,31 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*   ft_utils1.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slepetit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 21:59:59 by slepetit          #+#    #+#             */
-/*   Updated: 2022/09/15 17:37:39 by slepetit         ###   ########.fr       */
+/*   Updated: 2022/10/03 21:14:32 by slepetit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
-
-size_t	ft_strlen(char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-size_t	ft_putstr(char *s)
-{
-	return (write(1, s, ft_strlen(s)));
-}
 
 int	ft_atoi(const char *nptr)
 {
@@ -79,11 +64,11 @@ size_t	ft_putnbr(long int nb)
 	count += i;
 	i--;
 	while (i >= 0)
-		ft_putstr((tab[i--] + 48));
+		ft_putchar(tab[i--] + 48);
 	return (count);
 }
 
-char	*ft_strjoin(const char *s1, const char *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	size_t	i;
 	size_t	j;

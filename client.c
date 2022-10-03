@@ -6,7 +6,7 @@
 /*   By: slepetit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 16:45:03 by slepetit          #+#    #+#             */
-/*   Updated: 2022/09/29 00:19:36 by slepetit         ###   ########.fr       */
+/*   Updated: 2022/10/03 20:56:38 by slepetit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_send(int sig, siginfo_t *info, void *ignore)
 	}
 }
 
-void	ft_handler(void)
+void	ft_handler_client(void)
 {
 	sigset_t			signal;
 	struct sigaction	action;
@@ -76,6 +76,6 @@ int	main(int ac, char **av)
 		ft_putstr("Error PID\n");
 		exit(EXIT_FAILURE);
 	}
-	ft_handler();
+	ft_handler_client();
 	return (0);
 }
