@@ -12,7 +12,7 @@
 
 #include "minitalk.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen(char *s)
 {
 	int	i;
 
@@ -66,11 +66,11 @@ size_t	ft_putnbr(long int nb)
 	i = 0;
 	if (nb < 0)
 	{
-		count = ft_putchar('-');
+		count = ft_putstr("-");
 		nb *= -1;
 	}
 	if (nb == 0)
-		count = ft_putchar('0');
+		count = ft_putstr("0");
 	while (nb > 0)
 	{
 		tab[i++] = nb % 10;
@@ -79,7 +79,7 @@ size_t	ft_putnbr(long int nb)
 	count += i;
 	i--;
 	while (i >= 0)
-		ft_putchar(tab[i--] + 48);
+		ft_putstr((tab[i--] + 48));
 	return (count);
 }
 

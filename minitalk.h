@@ -17,10 +17,15 @@
 # include <unistd.h>
 
 size_t	ft_strlen(char *s);
-size_t	ft_putchar(char c);
 size_t	ft_putstr(char *s);
 size_t	ft_putnbr(long int nb);
-char	*ft_strjoin(const char s1, const char *s2);
+char	*ft_strjoin(const char *s1, const char *s2);
 int		ft_atoi(const char *nptr);
+void	ft_handler(int sig, siginfo_t *info, void *ignore);
+void	ft_binary(int sig, int *connect);
+void	ft_protect(char **str);
+void	ft_free(char **msg, int *connect);
+void	ft_handler(void);
+void	ft_send(int sig, siginfo_t *info, void *ignore);
 
 #endif

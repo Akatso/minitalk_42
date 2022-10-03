@@ -52,7 +52,7 @@ void	ft_binary(int sig, int *connect)
 	if (bit == 8)
 	{
 		tmp[0] = binary;
-		ft_strjoin(msg, tmp);
+		ft_strjoin(&msg, &tmp);
 		if (binary == '\0')
 		{
 			ft_putstr(msg);
@@ -74,7 +74,7 @@ void	ft_handler(int sig, siginfo_t *info, void *ignore)
 	else
 	{
 		ft_binary(sig, &connect);
-		kill(info->si_pid, SIGUR1);
+		kill(info->si_pid, SIGUSR1);
 	}
 	connect++;
 }
