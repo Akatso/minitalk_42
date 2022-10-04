@@ -6,12 +6,12 @@
 /*   By: slepetit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 16:45:03 by slepetit          #+#    #+#             */
-/*   Updated: 2022/10/03 20:56:38 by slepetit         ###   ########.fr       */
+/*   Updated: 2022/10/04 19:01:41 by slepetit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
-
+#include <stdio.h>
 /*
  *	struct sigaction {
  *		void		(*sa_handler)(int);
@@ -29,23 +29,22 @@ void	ft_send(int sig, siginfo_t *info, void *ignore)
 	static int	bit;
 	char		c;
 
-	c = g_str[i];
-	if (g_str[i] == '\0')
-		kill(info->si_pid, SIGUSR2);
-	else
+	c = 0;
+	if (g_str[i])
 	{
+		c = g_str[i];
 		if (c >> bit & 1)
 			kill(info->si_pid, SIGUSR1);
 		else
 			kill(info->si_pid, SIGUSR2);
-	}
-	bit++;
-	if (bit == 8 && !g_str[i])
-		exit(EXIT_SUCCESS);
-	else if (bit == 8)
-	{
-		bit = 0;
-		i++;
+		bit++;
+		if (bit == 8 && !g_str[i])
+			exit(EXIT_SUCCESS);
+		else if (bit == 8)
+		{
+			bit = 0;
+			i++;
+		}
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: slepetit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 21:09:10 by slepetit          #+#    #+#             */
-/*   Updated: 2022/10/03 21:11:37 by slepetit         ###   ########.fr       */
+/*   Updated: 2022/10/04 19:06:16 by slepetit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,21 @@ size_t	ft_strlen(const char *s)
 
 int	ft_putstr(char *s)
 {
-	return (write(1, &s, ft_strlen(s)));
+	return (write(1, s, ft_strlen(s)));
+}
+
+void	ft_reset(char **msg, int **connect)
+{
+	free(*msg);
+	*connect = 0;
+}
+
+void	ft_protect(char **str)
+{
+	if (!*str)
+	{
+		*str = malloc(sizeof(char));
+		if (!*str)
+			exit(EXIT_FAILURE);
+	}
 }

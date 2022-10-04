@@ -6,7 +6,7 @@
 /*   By: slepetit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 21:59:59 by slepetit          #+#    #+#             */
-/*   Updated: 2022/10/03 21:14:32 by slepetit         ###   ########.fr       */
+/*   Updated: 2022/10/04 17:03:52 by slepetit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,6 @@ char	*ft_strjoin(char *s1, char *s2)
 		j++;
 	}
 	dest[i] = 0;
-	free(s2);
+//	free(s2);
 	return (dest);
 }

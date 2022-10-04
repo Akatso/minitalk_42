@@ -6,7 +6,7 @@
 /*   By: slepetit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 16:45:11 by slepetit          #+#    #+#             */
-/*   Updated: 2022/10/03 20:59:59 by slepetit         ###   ########.fr       */
+/*   Updated: 2022/10/04 19:14:20 by slepetit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,11 @@
  *	}
  */
 
-void	ft_reset(char **msg, int **connect)
+void	ft_reverse(int binary)
 {
-	free(*msg);
-	*connect = 0;
-}
-
-void	ft_protect(char **str)
-{
-	if (!*str)
-	{
-		*str = malloc(sizeof(char));
-		if (!*str)
-			exit(EXIT_FAILURE);
-	}
+	static int	reverse;
+	// a finir tonight;
+	// envoyer binary;
 }
 
 void	ft_binary(int sig, int *connect)
@@ -51,8 +42,9 @@ void	ft_binary(int sig, int *connect)
 	bit++;
 	if (bit == 8)
 	{
+		ft_reverse(binary);
 		tmp[0] = binary;
-		ft_strjoin(msg, tmp);
+		msg = ft_strjoin(msg, tmp);
 		if (binary == '\0')
 		{
 			ft_putstr(msg);
@@ -62,7 +54,7 @@ void	ft_binary(int sig, int *connect)
 		bit = 0;
 	}
 	else
-		binary <<= 1;
+		binary >>= 1;
 }
 
 void	ft_handler_server(int sig, siginfo_t *info, void *ignore)
