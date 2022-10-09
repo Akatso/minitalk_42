@@ -6,7 +6,7 @@
 /*   By: slepetit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 21:09:10 by slepetit          #+#    #+#             */
-/*   Updated: 2022/10/04 19:06:16 by slepetit         ###   ########.fr       */
+/*   Updated: 2022/10/09 20:11:54 by slepetit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,12 @@ int	ft_putstr(char *s)
 	return (write(1, s, ft_strlen(s)));
 }
 
-void	ft_reset(char **msg, int **connect)
+void	ft_reset(char **msg, char **tmp, int **connect)
 {
 	free(*msg);
+	free(*tmp);
+	*msg = NULL;
+	*tmp = NULL;
 	*connect = 0;
 }
 

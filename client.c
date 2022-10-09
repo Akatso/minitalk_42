@@ -6,7 +6,7 @@
 /*   By: slepetit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 16:45:03 by slepetit          #+#    #+#             */
-/*   Updated: 2022/10/06 16:50:41 by slepetit         ###   ########.fr       */
+/*   Updated: 2022/10/09 20:07:23 by slepetit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,18 @@ void	ft_send(int sig, siginfo_t *info, void *ignore)
 		else
 			kill(info->si_pid, SIGUSR2);
 		bit++;
-		if (bit == 8 && !g_str[i])
-			exit(EXIT_SUCCESS);
-		else if (bit == 8)
+		if (bit == 8)
 		{
 			bit = 0;
 			i++;
 		}
+	}
+	else if (!g_str[i])
+	{
+		kill(info->si_pid, SIGUSR2);
+		bit++;
+		if (bit == 8)
+			exit(EXIT_SUCCESS);
 	}
 }
 
