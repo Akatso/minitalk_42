@@ -6,7 +6,7 @@
 /*   By: slepetit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 17:48:55 by slepetit          #+#    #+#             */
-/*   Updated: 2022/10/09 20:02:10 by slepetit         ###   ########.fr       */
+/*   Updated: 2022/10/09 22:53:08 by slepetit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		ft_reverse(int binary);
 void	ft_handler_server(int sig, siginfo_t *info, void *ignore);
 void	ft_binary(int sig, int *connect);
 void	ft_protect(char **str);
-void	ft_reset(char **msg, char **tmp, int **connect);
+void	ft_reset(char **msg, char **tmp, int *binary, int *bit);
 void	ft_handler_client(void);
 void	ft_send(int sig, siginfo_t *info, void *ignore);
 char	*ft_strjoin(char *s1, char *s2);

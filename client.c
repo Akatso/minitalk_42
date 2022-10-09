@@ -6,7 +6,7 @@
 /*   By: slepetit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 16:45:03 by slepetit          #+#    #+#             */
-/*   Updated: 2022/10/09 20:07:23 by slepetit         ###   ########.fr       */
+/*   Updated: 2022/10/09 22:56:01 by slepetit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,9 @@ void	ft_send(int sig, siginfo_t *info, void *ignore)
 	static int	bit;
 	char		c;
 
-	c = 0;
+	c = g_str[i];
 	if (g_str[i])
 	{
-		c = g_str[i];
 		if (c >> bit & 1)
 			kill(info->si_pid, SIGUSR1);
 		else
@@ -44,10 +43,10 @@ void	ft_send(int sig, siginfo_t *info, void *ignore)
 			i++;
 		}
 	}
-	else if (!g_str[i])
+	else if (g_str[i] == '\0')
 	{
 		kill(info->si_pid, SIGUSR2);
-		bit++;
+		bit ++;
 		if (bit == 8)
 			exit(EXIT_SUCCESS);
 	}

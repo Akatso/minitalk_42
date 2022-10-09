@@ -6,7 +6,7 @@
 /*   By: slepetit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 16:45:11 by slepetit          #+#    #+#             */
-/*   Updated: 2022/10/09 20:22:30 by slepetit         ###   ########.fr       */
+/*   Updated: 2022/10/09 22:54:34 by slepetit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,21 +52,21 @@ void	ft_binary(int sig, int *connect)
 	ft_protect(&tmp);
 	if (sig == SIGUSR1)
 		binary |= 1;
-	if (bit < 7)
-		binary <<= 1;
 	bit++;
-	if (bit == 8)
+	if (bit < 8)
+		binary <<= 1;
+	else
 	{
 		tmp[0] = ft_reverse(binary);
 		msg = ft_strjoin(msg, tmp);
 		if (binary == '\0')
 		{
-			ft_putstr(msg);
-			ft_reset(&msg, &tmp, &connect);
-			bit = 0;
-			binary = 0;
+			ft_reset(&msg, &tmp, &bit, &binary);
+			*connect = 0;
 			return ;
 		}
+		bit = 0;
+		binary = 0;
 	}
 }
 
@@ -75,13 +75,16 @@ void	ft_handler_server(int sig, siginfo_t *info, void *ignore)
 	static int	connect;
 
 	if (connect == 0)
+	{
 		kill(info->si_pid, SIGUSR1);
+		connect++;
+	}
 	else
 	{
 		ft_binary(sig, &connect);
 		kill(info->si_pid, SIGUSR1);
+		return ;
 	}
-	connect++;
 }
 
 int	main(void)
