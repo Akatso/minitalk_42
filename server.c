@@ -6,7 +6,7 @@
 /*   By: slepetit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 16:45:11 by slepetit          #+#    #+#             */
-/*   Updated: 2022/10/09 22:54:34 by slepetit         ###   ########.fr       */
+/*   Updated: 2022/10/09 23:06:25 by slepetit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ int	ft_reverse(int binary)
 
 void	ft_binary(int sig, int *connect)
 {
-	static char	*msg;
-	static char	*tmp;
+	static unsigned char	*msg;
+	static unsigned char	*tmp;
 	static int	binary;
 	static int	bit;
 
