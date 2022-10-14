@@ -21,6 +21,17 @@
  *	}
  */
 
+void    ft_reset(char **msg, char **tmp, int *binary, int *bit)
+{
+        ft_putstr(*msg);
+        free(*msg);
+        free(*tmp);
+        *msg = NULL;
+        *tmp = NULL;
+        *bit = 0;
+        *binary = 0;
+}
+
 int	ft_reverse(int binary)
 {
 	int	reverse;

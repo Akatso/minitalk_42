@@ -32,22 +32,21 @@ int	ft_putstr(char *s)
 	return (write(1, s, ft_strlen(s)));
 }
 
-void	ft_reset(char **msg, char **tmp, int *binary, int *bit)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	ft_putstr(*msg);
-	free(*msg);
-	free(*tmp);
-	*msg = NULL;
-	*tmp = NULL;
-	*bit = 0;
-	*binary = 0;
+	void	*p;
+
+	if (nmemb >= 65535 && size >= 65535)
+		return (NULL);
+	p = (void *)malloc(nmemb * size);
+	if (p == NULL)
+		return (NULL);
+	ft_bzero(p, (nmemb * size));
+	return (p);
 }
 
 void	ft_protect(char **str)
 {
 	if (*str == NULL)
-	{
-		*str = malloc(sizeof(char) * 2);
-		*(str[0]) = 0;
-	}
+		*str = ft_calloc(1, sizeof(char));
 }

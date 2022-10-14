@@ -12,6 +12,26 @@
 
 #include "minitalk.h"
 
+void	*ft_memset(void *s, int c, size_t n)
+{
+	size_t			i;
+	unsigned char	*tmp;
+
+	i = 0;
+	tmp = s;
+	while (i < n)
+	{
+		tmp[i] = c;
+		i++;
+	}
+	return (tmp);
+}
+
+void	ft_bzero(void *s, size_t n)
+{
+	ft_memset(s, 0, n);
+}
+
 int	ft_atoi(const char *nptr)
 {
 	int	i;

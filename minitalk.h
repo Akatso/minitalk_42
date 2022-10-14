@@ -27,6 +27,9 @@ void	ft_binary(int sig, int *connect);
 void	ft_protect(char **str);
 void	ft_reset(char **msg, char **tmp, int *binary, int *bit);
 void	ft_handler_client(void);
+void	ft_bzero(void *s, size_t n);
+void	*ft_memset(void *s, int c, size_t n);
+void	*ft_calloc(size_t nmemb, size_t size);
 void	ft_send(int sig, siginfo_t *info, void *ignore);
 char	*ft_strjoin(char *s1, char *s2);
 
