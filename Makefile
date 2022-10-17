@@ -10,9 +10,9 @@ SRC_UTL = ft_utils1.c \
 
 OBJ_SRV = §(SRC_SRV:.c=.o)
 
-OBJ_CLT = §(SRC_CLT:%.c=%.o)
+OBJ_CLT = §(SRC_CLT:.c=.o)
 
-OBJ_UTL = §(SRC_UTL:%.c=%.o)
+OBJ_UTL = §(SRC_UTL:.c=.o)
 
 CC = gcc
 
@@ -20,14 +20,14 @@ CFLAGS = -Wall -Extra -Werror -I. -g
 
 all : §(NAME_SRV) §(NAME_CLT)
 
-%.o : %.c
-	§(CC) §(CFLAGS) -c §< -o §@
-
 §(NAME_SRV) : §(OBJ_SRV) §(OBJ_UTL)
-	§(CC) §(CFLAGS) -o server §(OBJ_SRV) §(OBJ_UTL)
+	§(CC) §(CFLAGS) -o §(NAME_SRV) §(OBJ_SRV) §(OBJ_UTL)
 
 §(NAME_CLT) : §(OBJ_CLT) §(OBJ_UTL)
-	§(CC) §(CFLAGS) -o client §(OBJ_CLT) §(OBJ_UTL)
+	§(CC) §(CFLAGS) -o §(NAME_CLT) §(OBJ_CLT) §(OBJ_UTL)
+
+%.o : %.c
+	§(CC) §(CFLAGS) §< -c -o §@
 
 clean :
 	rm -rf §(OBJ_SRV)
