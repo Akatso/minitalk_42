@@ -95,6 +95,7 @@ void	ft_handler_server(int sig, siginfo_t *info, void *ignore)
 		ft_binary(sig, &connect);
 		kill(info->si_pid, SIGUSR1);
 	}
+	(void)ignore;
 }
 
 int	main(void)

@@ -50,6 +50,8 @@ void	ft_send(int sig, siginfo_t *info, void *ignore)
 		if (bit == 8)
 			exit(EXIT_SUCCESS);
 	}
+	(void)sig;
+	(void)ignore;
 }
 
 void	ft_handler_client(void)
