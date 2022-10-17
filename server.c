@@ -74,7 +74,6 @@ void	ft_binary(int sig, int *connect)
 		{
 			ft_reset(&msg, &tmp, &bit, &binary);
 			*connect = 0;
-			return ;
 		}
 		bit = 0;
 		binary = 0;
