@@ -60,6 +60,7 @@ void	ft_handler_client(void)
 	sigemptyset(&signal);
 	sigaddset(&signal, SIGUSR1);
 	action.sa_flags = SA_SIGINFO;
+	action.sa_mask = signal;
 	action.sa_sigaction = &ft_send;
 	sigaction(SIGUSR1, &action, NULL);
 	while (1)

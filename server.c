@@ -94,7 +94,6 @@ void	ft_handler_server(int sig, siginfo_t *info, void *ignore)
 	{
 		ft_binary(sig, &connect);
 		kill(info->si_pid, SIGUSR1);
-		return ;
 	}
 }
 
@@ -106,6 +105,7 @@ int	main(void)
 	sigemptyset(&signal);
 	sigaddset(&signal, SIGUSR2);
 	action.sa_flags = SA_SIGINFO;
+	action.sa_mask = signal;
 	action.sa_sigaction = &ft_handler_server;
 	ft_putnbr(getpid());
 	ft_putstr("\n");

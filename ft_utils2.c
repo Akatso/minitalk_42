@@ -48,5 +48,5 @@ void	*ft_calloc(size_t nmemb, size_t size)
 void	ft_protect(char **str)
 {
 	if (*str == NULL)
-		*str = ft_calloc(1, sizeof(char));
+		*str = ft_calloc(2, sizeof(char));
 }
