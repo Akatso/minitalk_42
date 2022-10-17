@@ -70,7 +70,7 @@ void	ft_binary(int sig, int *connect)
 	{
 		tmp[0] = ft_reverse(binary);
 		msg = ft_strjoin(msg, tmp);
-		if (binary == '\0')
+		if (binary == 0)
 		{
 			ft_reset(&msg, &tmp, &bit, &binary);
 			*connect = 0;
