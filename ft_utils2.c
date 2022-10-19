@@ -6,7 +6,7 @@
 /*   By: slepetit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 21:09:10 by slepetit          #+#    #+#             */
-/*   Updated: 2022/10/09 22:58:51 by slepetit         ###   ########.fr       */
+/*   Updated: 2022/10/19 17:36:40 by slepetit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,5 @@ void	*ft_calloc(size_t nmemb, size_t size)
 void	ft_protect(char **str)
 {
 	if (*str == NULL)
-		*str = ft_calloc(2, sizeof(char));
+		*str = ft_calloc(sizeof(char), 2);
 }
