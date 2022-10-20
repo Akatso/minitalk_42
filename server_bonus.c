@@ -6,11 +6,11 @@
 /*   By: slepetit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 18:04:55 by slepetit          #+#    #+#             */
-/*   Updated: 2022/10/19 18:05:22 by slepetit         ###   ########.fr       */
+/*   Updated: 2022/10/20 15:11:11 by slepetit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 void	ft_reset(char **msg, char **tmp, int *binary, int *bit)
 {

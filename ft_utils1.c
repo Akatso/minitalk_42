@@ -6,7 +6,7 @@
 /*   By: slepetit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 21:59:59 by slepetit          #+#    #+#             */
-/*   Updated: 2022/10/19 17:42:54 by slepetit         ###   ########.fr       */
+/*   Updated: 2022/10/20 15:13:37 by slepetit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,34 +116,3 @@ char	*ft_strjoin(char *s1, char *s2)
 	free(s1);
 	return (dest);
 }
-
-/*
-char	*ft_strjoin(char *s1, char *s2)
-{
-	size_t	i;
-	size_t	j;
-	size_t	len;
-	char	*dest;
-
-	i = 0;
-	j = 0;
-	len = ft_strlen(s1) + ft_strlen(s2);
-	dest = malloc(sizeof(char) * (len + 1));
-	if (dest == NULL)
-		return (NULL);
-	while (s1[i])
-	{
-		dest[i] = s1[i];
-		i++;
-	}
-	while (s2[j])
-	{
-		dest[i] = s2[j];
-		i++;
-		j++;
-	}
-	dest[i] = 0;
-	free(s1);
-	return (dest);
-}
-*/

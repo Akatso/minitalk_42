@@ -6,12 +6,12 @@
 /*   By: slepetit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 18:06:32 by slepetit          #+#    #+#             */
-/*   Updated: 2022/10/19 18:06:55 by slepetit         ###   ########.fr       */
+/*   Updated: 2022/10/20 15:10:04 by slepetit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#ifndef MINITALK_BONUS_H
+# define MINITALK_BONUS_HH
 # include <signal.h>
 # include <stdlib.h>
 # include <unistd.h>

@@ -6,11 +6,11 @@
 /*   By: slepetit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 18:04:02 by slepetit          #+#    #+#             */
-/*   Updated: 2022/10/19 18:04:30 by slepetit         ###   ########.fr       */
+/*   Updated: 2022/10/20 15:10:57 by slepetit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 char	*g_str;
 
@@ -73,4 +73,3 @@ int	main(int ac, char **av)
 	ft_handler_client();
 	return (0);
 }
-
